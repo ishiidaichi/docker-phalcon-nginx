@@ -26,20 +26,18 @@ RUN add-apt-repository ppa:ondrej/php5-5.6
 RUN apt-get install -y php5
 
 #php setup
-RUN apt-get install -y php5-dev php5-cli php5-fpm php-pear
+RUN apt-get install -y php5-dev php5-fpm php-pear
 RUN apt-get install -y curl php5-curl
 RUN apt-get install -y php5-mcrypt
 RUN apt-get install -y imagemagick php5-imagick
 RUN pecl install mongo
 RUN echo "extension=mongo.so" >> /etc/php5/fpm/conf.d/30-mongo.ini
-RUN echo "extension=mongo.so" >> /etc/php5/cli/conf.d/30-mongo.ini
 
 ##install phalcon php
 RUN apt-get install -y git-core gcc autoconf
 RUN git clone git://github.com/phalcon/cphalcon.git
 RUN cd cphalcon/build && ./install
 RUN echo "extension=phalcon.so" >> /etc/php5/fpm/conf.d/30-phalcon.ini
-RUN echo "extension=phalcon.so" >> /etc/php5/cli/conf.d/30-phalcon.ini
 
 #installing supervisord
 RUN apt-get install -y supervisor
