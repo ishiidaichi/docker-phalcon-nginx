@@ -26,7 +26,7 @@ RUN add-apt-repository ppa:ondrej/php5-5.6
 RUN apt-get install -y php5
 
 #php setup
-RUN apt-get install -y php5-dev php5-fpm php-pear
+RUN apt-get install -y php5-dev php5-fpm php-pear php5-mysql
 RUN apt-get install -y curl php5-curl
 RUN apt-get install -y php5-mcrypt
 RUN apt-get install -y imagemagick php5-imagick
